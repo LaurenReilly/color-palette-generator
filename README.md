@@ -1,14 +1,15 @@
 # Color Palette Generator
-
-Your task is to implement a React color palette generator similar to the one at https://coolors.co
-
-Your app should:
-1) Have a "Randomize Colors" button
-2) Show 5 colors on the screen
-3) Each color should have a hex code and a "LOCK/UNLOCK" button
-4) Clicking the "Randomize Colors" buton should only randomize the colors of the unlocked sections
-
-index.html includes Bootstrap v4 for your convenience. If you want an example of how to design your HTML, check out https://codepen.io/anon/pen/LqXPbB?editors=1000
-
-## Solution
-Checkout the "solution" branch to see a working solution if you feel stuck.
+Created a color palette generator similar to the one found at Coolors.co
+<img src="./home.png>
+## Features
+-The generator has the ability to create five colors with the press of a button.
+    -Pressing the generate colors button will generate a pallete by keeping a single randomly generated red value the same across all five colors while randomizing the green and blue values.
+-Each individual color can be locked by toggling the lock/unlock icon.
+    -If a color is locked it can not be modified until unlocked.
+-Three sliders on each color block represent red, green, and blue in the color and will update on change.
+-The Example below the color blocks shows a basic site design using all of the colors in the generated color palette.
+## Built With
+-React
+-Fonts.Google API
+-Font-Awesome icons
+-Bootstrap 4
