@@ -28,11 +28,11 @@ class Colors extends Component {
             ]
         }
     }
-    //generate one random color
+    //generate one random rgb color value
     randomColor() {
         return Math.floor(Math.random() * 256);   
     }
-    //generate five colors (base them all of of one initial color?)
+    //generate five random colors based off of the red value that is generated first
     generateColors() {
         let r = this.randomColor();
             this.setState({
@@ -48,7 +48,7 @@ class Colors extends Component {
             })
         })
     }
-    //toggle isLocked on each individual color
+    //toggle isLocked on each individual color when user clicks on lock icon
     lockColor(index) {
         this.setState({
             colors: this.state.colors.map((color, i) => {
@@ -61,7 +61,7 @@ class Colors extends Component {
             })
         })
     }
-    //randomize individual color, if it is locked do not change it
+    //randomize each color channel of an individual color, if it is locked do not change it
     randomize(index) {
         let r = this.randomColor();
         let g = this.randomColor();
@@ -78,6 +78,8 @@ class Colors extends Component {
         })
     }
     //change individual color channels using sliders for r, g, and b
+    //use indexOf and slice to get just the color values for each channel
+    //depending on the id of the target slider, change the respective color value to whatever is being input via the slider
     slider(index) {
         console.log("inside slider fn");
         let colorValue = event.target.value;
@@ -112,6 +114,9 @@ class Colors extends Component {
             })
         });
     }
+    //parent element <Colors/> passes down values for functions as props
+    //these functions include the index of the individual child <Colorblock/> which
+    //is how they are able to be identified in each of the functions that change their properties.
     render() {
         return (
             <div className="mt-3 d-flex flex-column">
@@ -153,6 +158,7 @@ let ColorBlock = (props) => {
         return (
             <div style={{backgroundColor: props.color, width:"20%", height:"20em", boxShadow: "5px 5px 2px rgb(64,64,64)"}} className="rounded mx-1 mb-3 d-flex flex-column align-content-between">
                 <h3 className="text-center mt-5" style={{color:"white"}}>{props.color}</h3>
+                //change the lock/unlock icon based on the isLocked property
                 {props.isLocked ? <i className="mb-1 fa fa-lock text-center fa-2x" onClick={() => props.lockColor()}></i> : <i className="mb-1 fa fa-unlock-alt text-center fa-2x" onClick={() => props.lockColor()}></i>}
                 <button className="btn rounded btn-large mt-1 mb-5 btn-primary" onClick={() => props.randomize()}>Randomize</button>
                 <div className="m-auto" style={{width: "80%"}}>
