@@ -1,6 +1,6 @@
 # Color Palette Generator
 Created a color palette generator similar to the one found at Coolors.co
-<img src="./home.png>
+(./home.png)
 ## Features
 -The generator has the ability to create five colors with the press of a button.
     -Pressing the generate colors button will generate a pallete by keeping a single randomly generated red value the same across all five colors while randomizing the green and blue values.
