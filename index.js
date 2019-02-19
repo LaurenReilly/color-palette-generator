@@ -77,9 +77,9 @@ class Colors extends Component {
             })
         })
     }
-    //change individual color channels using sliders for r, g, and b
-    //use indexOf and slice to get just the color values for each channel
-    //depending on the id of the target slider, change the respective color value to whatever is being input via the slider
+// change individual color channels using sliders for r, g, and b
+// use indexOf and slice to get just the color values for each channel
+// depending on the id of the target slider, change the respective color value to whatever is being input via the slider
     slider(index) {
         console.log("inside slider fn");
         let colorValue = event.target.value;
@@ -158,7 +158,6 @@ let ColorBlock = (props) => {
         return (
             <div style={{backgroundColor: props.color, width:"20%", height:"20em", boxShadow: "5px 5px 2px rgb(64,64,64)"}} className="rounded mx-1 mb-3 d-flex flex-column align-content-between">
                 <h3 className="text-center mt-5" style={{color:"white"}}>{props.color}</h3>
-                //change the lock/unlock icon based on the isLocked property
                 {props.isLocked ? <i className="mb-1 fa fa-lock text-center fa-2x" onClick={() => props.lockColor()}></i> : <i className="mb-1 fa fa-unlock-alt text-center fa-2x" onClick={() => props.lockColor()}></i>}
                 <button className="btn rounded btn-large mt-1 mb-5 btn-primary" onClick={() => props.randomize()}>Randomize</button>
                 <div className="m-auto" style={{width: "80%"}}>
